@@ -1,8 +1,7 @@
-const { JwtRsaVerifier } = require("aws-jwt-verify");
-const { getVerifier } = require("./index.js");
+const { hello } = require("./index.js");
 
-describe("test aws-jwt-verify", () => {
-  test("verifier is returned", () => {
-    expect(getVerifier()).toBe(JwtRsaVerifier);
+describe("test my module", () => {
+  test("my module says hello", () => {
+    expect(hello).toBe("Hello");
   });
 });

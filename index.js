@@ -1,3 +1,10 @@
-const { JwtRsaVerifier } = require("aws-jwt-verify");
+// Just having this require breaks jest (without additional config):
+const {} = require("aws-jwt-verify");
 
-module.exports.getVerifier = () => JwtRsaVerifier;
+const hello = "Hello";
+
+module.exports = { hello };
+
+if (require.main === module) {
+  console.log(hello);
+}
