@@ -8,7 +8,7 @@ However Jest does not support modules using subpath imports, unless jest users d
 
 This example uses the NPM library `aws-jwt-verify`, which under the hood uses subpath imports (to support both Web and NodeJS from the same codebase).
 
-1. Clone this repo
+1. Clone this repo: `git clone https://github.com/ottokruse/jest-subpath-import.git`
 1. Install dependencies: `npm install`
 1. Run jest: `npx jest`
 
@@ -36,10 +36,16 @@ Time:        0.283 s
 Ran all test suites.
 ```
 
-# Work around
+# Workaround
 
 Jest works successfully if you specify a `moduleNameMapper` in the jest config:
 
 `npx jest --config jest.config.fix.js`
 
 Adding similar mapping logic to a custom resolver in jest would work too.
+
+# Proof that this is not an issue in the used library itself
+
+This runs perfectly and NodeJS is able to resolve the subpath import fine:
+
+`node index.js`
